@@ -1,0 +1,70 @@
+.data
+prompt: .asciiz "Enter an integer: "
+negative: .asciiz "The number entered is negative. Please enter a non-negative integer.\n"
+
+.text
+.globl main
+
+main:
+    # Prompt the user to enter an integer
+    li $v0, 4
+    la $a0, prompt
+    syscall
+
+    # Read the integer from the user and store it in $t0
+    li $v0, 5
+    syscall
+    move $t0, $v0
+
+    # Check if the number entered is negative
+    bltz $t0, negative_num
+
+    # Call the Factorial procedure with the parameter in $a0
+    move $a0, $t0
+    jal Factorial
+
+    # Print the result returned by Factorial in $v0
+    move $a0, $v0
+    li $v0, 1
+    syscall
+
+    # Exit the program
+    li $v0, 10
+    syscall
+
+negative_num:
+    # Print a message saying the number entered is negative
+    li $v0, 4
+    la $a0, negative
+    syscall
+
+    # Prompt the user again for a number
+    j main
+
+# This procedure computes the factorial of a non-negative integer.
+# The parameter (an integer) is received in $a0.
+# The result (a 32-bit integer) is returned in $v0.
+# The procedure uses none of the registers $s0 - $s7, so no need to save them.
+# Any parameter that will make the factorial compute a result larger than
+# 32 bits will return a wrong result.
+Factorial:
+    subu $sp, $sp, 4
+    sw $ra, 4($sp)         # Save the return address on stack
+    beqz $a0, terminate    # Test for termination
+    subu $sp, $sp, 4       # Do not terminate yet
+    sw $a0, 4($sp)         # Save the parameter
+    sub $a0, $a0, 1        # Call with a smaller argument
+    jal Factorial
+
+    # After the termination condition is reached, these lines will be executed
+    lw $t0, 4($sp)         # The argument saved on the stack
+    mul $v0, $v0, $t0      # Perform the multiplication
+    lw $ra, 8($sp)         # Prepare to return
+    addu $sp, $sp, 8       # Pop 2 words (an address and an argument)
+    jr $ra
+
+terminate:
+    li $v0, 1              # 0! = 1 is the return value
+    lw $ra, 4($sp)         # Get the return address
+    addu $sp, $sp, 4       # Adjust the stack pointer
+    jr $ra                 # Return
