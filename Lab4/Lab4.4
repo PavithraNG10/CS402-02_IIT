@@ -1,0 +1,70 @@
+    .text
+    .globl main
+
+main:
+    addi $sp, $sp, -12      # make space on the stack for 3 words
+    sw $ra, 8($sp)          # save $ra on the stack
+
+    # Prompt user for input
+    li $v0, 4               # system call code for printing a string
+    la $a0, prompt1         # address of the prompt string
+    syscall                 # print the prompt
+
+    # Read the first integer from the user
+    li $v0, 5               # system call code for reading an integer
+    syscall                 # read the integer from user input
+    sw $v0, 4($sp)          # store the first integer on the stack
+
+    # Prompt user for input
+    li $v0, 4               # system call code for printing a string
+    la $a0, prompt2         # address of the prompt string
+    syscall                 # print the prompt
+
+    # Read the second integer from the user
+    li $v0, 5               # system call code for reading an integer
+    syscall                 # read the integer from user input
+    sw $v0, 0($sp)          # store the second integer on the stack
+
+    jal Largest             # call 'Largest' procedure
+
+    lw $t2, 0($sp)          # load the return value of 'Largest' from stack to $t2
+
+    # Print the result
+    li $v0, 4               # system call code for printing a string
+    la $a0, result          # address of the result string
+    syscall                 # print the message
+
+    move $a0, $t2           # move the value of 'Largest' to $a0
+    li $v0, 1               # system call code for printing an integer
+    syscall                 # print the value
+
+    lw $ra, 8($sp)          # restore the return address in $ra
+    addi $sp, $sp, 12       # restore the stack pointer
+
+    jr $ra                  # return from main
+
+# The procedure 'Largest' takes two integers as parameters on stack,
+# and returns the largest of them in memory.
+Largest:
+   lw $a0, 4($sp)   # load first parameter from stack to register a0 
+   lw $a1, 0($sp)   # load second parameter from stack to register a1 
+   
+   slt $t2, $a0, $a1   # compare a0 < a1 
+   
+   beqz $t2, else   # if a0 >= a1 , branch to 'else' label
+   
+   move $v0, $a1   # move a1 to v0 (since a1 is larger)
+   j end   # jump to 'end' label
+   
+else:
+   move $v0, $a0   # move a0 to v0 (since a0 is larger)
+   
+end:
+   sw $v0, 0($sp)   # store return value on stack 
+   
+   jr $ra   # return from 'Largest'
+   
+.data
+prompt1: .asciiz "Enter the first integer: "
+prompt2: .asciiz "Enter the second integer: "
+result: .asciiz "The largest number is "
