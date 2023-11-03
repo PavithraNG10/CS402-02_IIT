@@ -1,0 +1,216 @@
+
+./workerdb input.txt  
+ 
+Employee DB Menu:
+
+----------------------------------
+
+  (1) Print the Database
+
+  (2) Lookup by ID
+
+  (3) Lookup by Last Name
+
+  (4) Add an Employee
+
+  (5) Quit
+
+----------------------------------
+
+Enter your choice: 1
+ 
+NAME                    SALARY          ID
+
+---------------------------------------------------------------
+
+Cathryn Danner          72000           165417
+
+Matt Meeden             69000           273225
+
+Robert Dufour           91000           471163
+
+Mike Griffin            72000           499959
+
+Daniel McNamee          71000           547935
+
+Peter Olsen             82000           553997
+
+Martine Marshall                99000           633976
+
+Jean Jones              94000           702234
+
+Dana Parrish            87000           784372
+
+Ann Coddington          82000           786785
+
+Melissa Dufour          114000          849387
+
+Dylan Steinberg         84000           485913
+
+Heather James           98000           935460
+
+Russ Vorobiev           109000          970016
+
+---------------------------------------------------------------
+
+Number of Employees (14)
+ 
+ 
+Employee DB Menu:
+
+----------------------------------
+
+  (1) Print the Database
+
+  (2) Lookup by ID
+
+  (3) Lookup by Last Name
+
+  (4) Add an Employee
+
+  (5) Quit
+
+----------------------------------
+
+Enter your choice: 2
+
+Enter the employee ID: 553997
+ 
+Employee found:
+
+Name: Peter Olsen
+
+Salary: 82000
+
+ID: 553997
+ 
+Employee DB Menu:
+
+----------------------------------
+
+  (1) Print the Database
+
+  (2) Lookup by ID
+
+  (3) Lookup by Last Name
+
+  (4) Add an Employee
+
+  (5) Quit
+
+----------------------------------
+
+Enter your choice: 3
+
+Enter the employee's last name: Parrish
+ 
+Employee found:
+
+Name: Dana Parrish
+
+Salary: 87000
+
+ID: 784372
+ 
+Employee DB Menu:
+
+----------------------------------
+
+  (1) Print the Database
+
+  (2) Lookup by ID
+
+  (3) Lookup by Last Name
+
+  (4) Add an Employee
+
+  (5) Quit
+
+----------------------------------
+
+Enter your choice: 4
+
+Enter the employee's first name: pavithra
+
+Enter the employee's last name: nagarle
+
+Enter the employee's salary: 40000
+
+Employee added successfully.
+ 
+Employee DB Menu:
+
+----------------------------------
+
+  (1) Print the Database
+
+  (2) Lookup by ID
+
+  (3) Lookup by Last Name
+
+  (4) Add an Employee
+
+  (5) Quit
+
+----------------------------------
+
+Enter your choice: 1
+ 
+NAME                    SALARY          ID
+
+---------------------------------------------------------------
+
+Cathryn Danner          72000           165417
+
+Matt Meeden             69000           273225
+
+Robert Dufour           91000           471163
+
+Mike Griffin            72000           499959
+
+Daniel McNamee          71000           547935
+
+Peter Olsen             82000           553997
+
+Martine Marshall                99000           633976
+
+Jean Jones              94000           702234
+
+Dana Parrish            87000           784372
+
+Ann Coddington          82000           786785
+
+Melissa Dufour          114000          849387
+
+Dylan Steinberg         84000           485913
+
+Heather James           98000           935460
+
+Russ Vorobiev           109000          970016
+
+pavithra nagarle                40000           970017
+
+---------------------------------------------------------------
+
+Number of Employees (15)
+ 
+ 
+Employee DB Menu:
+
+----------------------------------
+
+  (1) Print the Database
+
+  (2) Lookup by ID
+
+  (3) Lookup by Last Name
+
+  (4) Add an Employee
+
+  (5) Quit
+
+----------------------------------
+
+Enter your choice: 5
+
+goodbye!
