@@ -1,0 +1,104 @@
+to run the program follow below steps
+1. gcc -c readfile.c
+2. gcc -o workerDB workerdb.c readfile.o
+3.  ./workerDB input.txt
+
+
+After compiling and running the program a sample output will look like this 
+
+
+./workerDB input.txt
+
+Employee DB Menu:
+----------------------------------
+        (1) Print the Database
+        (2) Lookup by ID
+        (3) Lookup by Last Name
+        (4) Add an Employee
+        (5) Quit
+        (6) Remove an Employee
+        (7) Update Employee Record
+        (8) Print Employee(s) with Highest Salary
+        (9) Find all Employees with Entered Last Name
+----------------------------------
+Enter your choice: 1
+
+Name                            SALARY     ID
+----------------------------------------------
+Cathryn         Danner          72000   165417
+Matt            Meeden          69000   273225
+Robert          Dufour          91000   471163
+Dylan           Steinberg       84000   485913
+Mike            Griffin         72000   499959
+Daniel          McNamee         71000   547935
+Peter           Olsen           82000   553997
+Martine         Marshall        99000   633976
+Jean            Jones           94000   702234
+Dana            Parrish         87000   784372
+Ann             Coddington      82000   786785
+Melissa         Dufour          114000  849387
+Heather         James           98000   935460
+Russ            Vorobiev        109000  970016
+----------------------------------------------
+ Number of Employees (14)
+
+Employee DB Menu:
+----------------------------------
+        (1) Print the Database
+        (2) Lookup by ID
+        (3) Lookup by Last Name
+        (4) Add an Employee
+        (5) Quit
+        (6) Remove an Employee
+        (7) Update Employee Record
+        (8) Print Employee(s) with Highest Salary
+        (9) Find all Employees with Entered Last Name
+----------------------------------
+Enter your choice: 8
+
+Please enter how many employees you want to view with the highest salaries
+Enter your choice: 1
+
+Name                            SALARY     ID
+----------------------------------------------
+Melissa         Dufour          114000  849387
+----------------------------------------------
+ Number of Employees (1)
+
+Employee DB Menu:
+----------------------------------
+        (1) Print the Database
+        (2) Lookup by ID
+        (3) Lookup by Last Name
+        (4) Add an Employee
+        (5) Quit
+        (6) Remove an Employee
+        (7) Update Employee Record
+        (8) Print Employee(s) with Highest Salary
+        (9) Find all Employees with Entered Last Name
+----------------------------------
+Enter your choice: 9
+
+Please enter an employee's last name: hello
+
+Name                            SALARY     ID
+----------------------------------------------
+----------------------------------------------
+
+User with last name 'hello' not found
+
+Employee DB Menu:
+----------------------------------
+        (1) Print the Database
+        (2) Lookup by ID
+        (3) Lookup by Last Name
+        (4) Add an Employee
+        (5) Quit
+        (6) Remove an Employee
+        (7) Update Employee Record
+        (8) Print Employee(s) with Highest Salary
+        (9) Find all Employees with Entered Last Name
+----------------------------------
+Enter your choice: 5
+
+Later!
